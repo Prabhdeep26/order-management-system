@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const StationaryForm = () => {
 	const [item, setItem] = useState("pen");
@@ -8,10 +9,15 @@ const StationaryForm = () => {
 	const [subtotal, setSubtotal] = useState(0);
 	const [total, setTotal] = useState(0);
 
+	const navigator = useNavigate();
+
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		console.log(item);
-		console.log(quantity);
+		sessionStorage.setItem("stationary", {
+			subtotal: subtotal,
+			total: total,
+		});
+		navigator("/printing");
 	};
 
 	const handleChange = (e) => {

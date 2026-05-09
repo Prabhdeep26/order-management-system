@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { useEffect, useState } from "react";
 
 const CalculationTax = () => {
-  return (
-    <div>
-      
-    </div>
-  )
-}
+	const [stationarySubtotal, setStationarySubtotal] = useState("");
+	const [printingSubtotal, setPrintingSubtotal] = useState("");
 
-export default CalculationTax
+	useEffect(() => {
+		const stationary = sessionStorage.getItem("stationary");
+		const printing = sessionStorage.getItem("printing");
+	}, []);
+	return <div></div>;
+};
+
+export default CalculationTax;
